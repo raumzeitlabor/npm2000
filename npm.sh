@@ -135,4 +135,42 @@ fi
 fi
 ######### END DISPLAY PORT STATUS #################
 
+
+
+######### SHOW HELP #################
+if [[ "$operation" = "help" || "$operation" = "--help" || "$operation" = "-h" ]]; then
+echo "USAGE: ./npm.sh OPERATION [PARAMETER] (don't use 'sh npm.sh')"
+echo "Can set the status or report the status of the ports on a npm2000 manageable power device"
+echo "IP address and password of the device are to be set within the script. Open the script in you favorite editor and edit lines 29 (IP address) and 30 (password) accordingly "
+echo ""
+echo "To view the current port status of the npm2000 type:"
+echo "./npm.sh status"
+echo "this will give you the status of all ports in the form: 00100001 with every digit giving the status of the corresponding port 0 means that the port is switched off and 1 means the port is switched on."
+echo "in this case ports 3 and 8 are switched on, ports 1,2,4,5,6 and 7 are switech off."
+echo "Arguments for status reports:"
+echo "./npm.sh staus \$port"
+echo "where \$port is the number of the port you want to know the status of"
+echo "Example:"
+echo "./npm.sh status 5"
+echo "Port 5 is switched off"
+echo "./npm status verbose OR ./npm staus v"
+echo "this will give you the status of all ports in an human readable form:"
+echo "Port 1 is switched off"
+echo "Port 2 is switechd on"
+echo "...."
+echo ""
+echo "To set the status of a port of the npm2000 type:"
+echo "./npm.sh set \$port on/off"
+echo "where \$port is the number of the port you want to set"
+echo "Example:"
+echo "./npm.sh set 4 on"
+echo "this will switch port 4 on, regardless to the status it currently has."
+echo "If setting a port, the npm Script will take about 1.2 seconds to exit. This is due to netcat waiting for a response and timing out after one second. If you know a way to reduce the timeout for netcat please let me know."
+echo "" 
+echo "Script created by Niklas Goerke - wurstundkaese@gmail.com"
+echo "Please report any bugs you may encounter"
+
+fi
+
+######### EDN SHOW HELP #################
 exit
