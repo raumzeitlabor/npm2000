@@ -1,5 +1,15 @@
 #!/bin/bash
 
+
+##### Specific Settings for your NPM config: ###
+##### EDIT HERE #####
+
+ip="192.168.0.178"	# input the ip of your NPM here, default ist 192.168.0.178 -- NOT tested with other IP address, should be working fine
+pw="12345678"		# input the password of your lxb (Admin) User, default ist 12345678 -- NOT TESTED WITH OTHER PASSWORD especially not if Password contains non-hex characters
+			# Works with default user "lxb" will probably not work with other user name.
+
+##### STOP EDITING HERE #####
+
 operation="$1"
 shift
 arg2="$1"
@@ -22,13 +32,6 @@ arg3="$1"
 #shift
 #port8="$1"
 #shift
-
-##### Specific Settings for your NPM config: ###
-##### EDIT HERE #####
-
-ip="192.168.0.178"	# input the ip of your NPM here, default ist 192.168.0.178
-pw="12345678"		# input the password of your lxb (Admin) User, default ist 12345678
-
 
 # When talking to the NPM there is kind of a random looking char that belongs to every port
 portcode[1]="7"	
@@ -141,7 +144,7 @@ fi
 if [[ "$operation" = "help" || "$operation" = "--help" || "$operation" = "-h" ]]; then
 echo "USAGE: ./npm.sh OPERATION [PARAMETER] (don't use 'sh npm.sh')"
 echo "Can set the status or report the status of the ports on a npm2000 manageable power device"
-echo "IP address and password of the device are to be set within the script. Open the script in you favorite editor and edit lines 29 (IP address) and 30 (password) accordingly "
+echo "IP address and password of the device are set within the script. Open the script in you favorite editor and edit line 7 (IP address) accordingly. I do NOT recommend to edit the password as it has not been tested with a password other than \"12345678\". Be even more careful with a password that contains non-Hex chars."
 echo ""
 echo "To view the current port status of the npm2000 type:"
 echo "./npm.sh status"
@@ -172,5 +175,5 @@ echo "Please report any bugs you may encounter"
 
 fi
 
-######### EDN SHOW HELP #################
+######### END SHOW HELP #################
 exit

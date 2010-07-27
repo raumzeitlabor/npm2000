@@ -1,0 +1,46 @@
+
+
+This file describes the npm2000 script made to control the manageable power supply NPM2000
+
+See http://github.com/niklas974/npm2000 for git repository
+
+
+To use the Script just clone the git repository or otherwise get hold of the npm.sh script.
+You have to edit line 7 within the script to set your ip address. I don't recommend to use an other user name name than "lxb" or another password than "12345678" because it has not been tested. 
+But there is no point to change this anyway as it will be transmitted to the npm device without using any encryption.
+
+
+
+
+USAGE: ./npm.sh OPERATION [PARAMETER] (don't use 'sh npm.sh')
+Can set the status or report the status of the ports on a npm2000 manageable power device
+IP address and password of the device are set within the script. Open the script in you favorite editor and edit line 7 (IP address) accordingly. I do NOT recommend to edit the password as it has not been tested with a password other than "12345678". Be even more careful with a password that contains non-Hex chars.
+
+To view the current port status of the npm2000 type:
+./npm.sh status
+this will give you the status of all ports in the form: 00100001 with every digit giving the status of the corresponding port 0 means that the port is switched off and 1 means the port is switched on.
+in this case ports 3 and 8 are switched on, ports 1,2,4,5,6 and 7 are switech off.
+Arguments for status reports:
+./npm.sh staus \$port
+where \$port is the number of the port you want to know the status of
+Example:
+./npm.sh status 5
+Port 5 is switched off
+./npm status verbose OR ./npm staus v
+this will give you the status of all ports in an human readable form:
+Port 1 is switched off
+Port 2 is switechd on
+....
+
+To set the status of a port of the npm2000 type:
+./npm.sh set \$port on/off
+where \$port is the number of the port you want to set
+Example:
+./npm.sh set 4 on
+this will switch port 4 on, regardless to the status it currently has.
+If setting a port, the npm Script will take about 1.2 seconds to exit. This is due to netcat waiting for a response and timing out after one second. If you know a way to reduce the timeout for netcat please let me know.
+
+Script created by Niklas Goerke - wurstundkaese@gmail.com
+Please report any bugs you may encounter
+
+
