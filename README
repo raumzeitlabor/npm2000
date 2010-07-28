@@ -6,13 +6,13 @@ See http://github.com/niklas974/npm2000 for git repository
 
 
 To use the Script just clone the git repository or otherwise get hold of the npm.sh script.
-You have to edit line 7 within the script to set your ip address. I don't recommend to use an other user name name than "lxb" or another password than "12345678" because it has not been tested. 
+You have to edit line 7 within the script to set your IP address. The Usernmae used in the script is the default user Name of the device ("lxb"), I did not try with another username. I did not test the script with a password other than "12345678".
 But there is no point to change this anyway as it will be transmitted to the npm device without using any encryption.
 
 
 
 
-USAGE: ./npm.sh OPERATION [PARAMETER] (don't use 'sh npm.sh')
+USAGE: ./npm.sh OPERATION [PARAMETER]
 Can set the status or report the status of the ports on a npm2000 manageable power device
 IP address and password of the device are set within the script. Open the script in you favorite editor and edit line 7 (IP address) accordingly. I do NOT recommend to edit the password as it has not been tested with a password other than "12345678". Be even more careful with a password that contains non-Hex chars.
 
